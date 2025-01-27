@@ -17,6 +17,9 @@ const blogSchema= new Schema({
     blog_date:common,
     blog_desc:common,
     blog_image:String
+},
+{
+    timestamps:true
 })
 
 const Blog=model("Blog",blogSchema)
