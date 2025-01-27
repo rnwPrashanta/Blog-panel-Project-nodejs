@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<%- include('../layout/headSection') %>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <div id="main-wrapper">
+
+        <%- include("../layout/header") -%>
+        <%- include("../layout/sidebar") %>
+
+        <div class="page-wrapper">
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-12 d-flex no-block align-items-center">
+                        <h4 class="page-title"></h4>
+                        <div class="ml-auto text-right">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="card shadow-lg rounded-lg">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h5>Add Blog Details</h5>
+                    </div>
+                    <form class="form-horizontal" action="/api/blog" method="post" enctype="multipart/form-data">
+                        <div class="card-body">
+
+                            <!-- Blog Category -->
+                            <div class="form-group row">
+                                <label for="blog_category" class="col-sm-3 text-right control-label col-form-label">Blog Category</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="blog_category" name="blog_category" required>
+                                        <option selected disabled>Select Category</option>
+                                        <option value="Red And White Multimedia">Red And White Multimedia</option>
+                                        <option value="Tops Institute">Tops Institute</option>
+                                        <option value="Disha Computing Center">Disha Computing Center</option>
+                                        <option value="IANT TECHNOLOGY">IANT TECHNOLOGY</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Blog Title -->
+                            <div class="form-group row">
+                                <label for="blog_title" class="col-sm-3 text-right control-label col-form-label">Blog Title</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="blog_title" placeholder="Enter blog title" name="blog_title" required>
+                                </div>
+                            </div>
+
+                            <!-- Blog Content -->
+                            <div class="form-group row">
+                                <label for="blog_content" class="col-sm-3 text-right control-label col-form-label">Blog Content</label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" id="blog_content" rows="5" placeholder="Enter blog content" name="blog_content" required></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Blog Author -->
+                            <div class="form-group row">
+                                <label for="blog_author" class="col-sm-3 text-right control-label col-form-label">Blog Author</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="blog_author" placeholder="Enter author name" name="blog_author" required>
+                                </div>
+                            </div>
+
+                            <!-- Blog Date -->
+                            <div class="form-group row">
+                                <label for="blog_date" class="col-sm-3 text-right control-label col-form-label">Blog Date</label>
+                                <div class="col-sm-9">
+                                    <input type="date" class="form-control" id="blog_date" name="blog_date" required>
+                                </div>
+                            </div>
+
+                            <!-- Blog Description -->
+                            <div class="form-group row">
+                                <label for="blog_desc" class="col-sm-3 text-right control-label col-form-label">Blog Description</label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" id="blog_desc" rows="5" placeholder="Enter blog description" name="blog_desc" required></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Image Upload -->
+                            <div class="form-group row">
+                                <label for="blog_image" class="col-sm-3 text-right control-label col-form-label">Image Upload</label>
+                                <div class="col-sm-9">
+                                    <input type="file" class="form-control-file" id="blog_image" name="blog_image">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-footer text-center">
+                            <button type="submit" class="btn btn-success px-4">Submit</button>
+                            <button type="reset" class="btn btn-secondary px-4">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <footer class="footer text-center mt-4">
+                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+            </footer>
+        </div>
+    </div>
+
+    <%- include('../layout/jsLinks') %>
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<%- include('../layout/headSection') %>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <!-- Header -->
+        <%- include("../layout/header") -%>
+
+        <!-- Sidebar -->
+        <%- include("../layout/sidebar") %>
+
+        <div class="page-wrapper">
+            <!-- Breadcrumb -->
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-12 d-flex no-block align-items-center">
+                        <h4 class="page-title" id="hover-title">Update Blog</h4>
+                        <div class="ml-auto text-right">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Update Blog</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container Fluid -->
+            <div class="container-fluid">
+                <div class="card shadow-sm rounded-lg">
+                    <form class="form-horizontal" action="/api/blog/<%= blogs._id %>" method="post" enctype="multipart/form-data">
+                        <div class="card-body">
+                            <h4 class="card-title text-center text-primary">Update Blog</h4>
+
+                            <div class="form-group row">
+                                <label for="blogCategory" class="col-sm-3 text-right control-label col-form-label">Blog Category</label>
+                                <div class="col-sm-9">
+                                    <select class="form-select" id="blogCategory" name="blog_category" value="<%= blogs.blog_category %>">
+                                        <option selected disabled><%= blogs.blog_category %></option>
+                                        <option value="Technology">Technology</option>
+                                        <option value="Lifestyle">Lifestyle</option>
+                                        <option value="Education">Education</option>
+                                        <option value="Travel">Travel</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="blogTitle" class="col-sm-3 text-right control-label col-form-label">Blog Title</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="blogTitle" placeholder="Enter blog title" value="<%= blogs.blog_title %>" name="blog_title">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="blogContent" class="col-sm-3 text-right control-label col-form-label">Blog Content</label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" id="blogContent" placeholder="Enter blog content" name="blog_content"><%= blogs.blog_content %></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="blogAuthor" class="col-sm-3 text-right control-label col-form-label">Blog Author</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="blogAuthor" placeholder="Enter author name" name="blog_author" value="<%= blogs.blog_author %>">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="blogDate" class="col-sm-3 text-right control-label col-form-label">Blog Date</label>
+                                <div class="col-sm-9">
+                                    <input type="date" class="form-control" id="blogDate" name="blog_date" value="<%= blogs.blog_date %>">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="blogDescription" class="col-sm-3 text-right control-label col-form-label">Blog Description</label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" id="blogDescription" placeholder="Enter blog description" name="blog_desc"><%= blogs.blog_desc %></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="blogImage" class="col-sm-3 text-right control-label col-form-label">Image Upload</label>
+                                <div class="col-sm-9">
+                                    <input type="file" class="custom-file-input" id="blogImage" name="blog_image">
+                                    <label class="custom-file-label" for="blogImage">Choose image</label>
+                                    <div class="mt-3">
+                                        <label class="d-block">Current Image:</label>
+                                        <img src="/profile/<%= blogs.blog_image %>" class="img-fluid rounded" alt="Blog Image" height="100" width="100">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-top text-center">
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer text-center mt-4">
+                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+            </footer>
+        </div>
+    </div>
+
+    <%- include('../layout/jsLinks') %>
+
+    <style>
+        #hover-title:hover {
+            color: #1e88e5;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</body>
+
+</html>
